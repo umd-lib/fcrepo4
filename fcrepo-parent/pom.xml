@@ -4,7 +4,7 @@
 
   <groupId>org.fcrepo</groupId>
   <artifactId>fcrepo-parent</artifactId>
-  <version>4.7.5-umd-1.1</version>
+  <version>4.7.6-umd-1.0</version>
   <name>Fedora Commons 4 :: Parent POM</name>
   <description>Parent POM for Fedora Commons Projects</description>
   <url>http://fedorarepository.org</url>
@@ -23,7 +23,7 @@
     <project.copyrightYear>2015</project.copyrightYear>
     <!-- scm, site distribution names -->
     <project_name>${project.artifactId}</project_name>
-    <project_organization>fcrepo4</project_organization>
+    <project_organization>fcrepo</project_organization>
     <!-- OSGi -->
     <osgi.import.packages />
     <osgi.private.packages />
@@ -57,7 +57,7 @@
     <scm-provider-gitexe.plugin.version>1.9.4</scm-provider-gitexe.plugin.version>
     <site.plugin.version>3.4</site.plugin.version>
     <source.plugin.version>2.4</source.plugin.version>
-    <surefire.plugin.version>2.18.1</surefire.plugin.version>
+    <surefire.plugin.version>2.22.0</surefire.plugin.version>
     <versions.plugin.version>2.1</versions.plugin.version>
     <!-- jacoco and sonar configuration -->
     <jacoco.outputDir>${project.build.directory}</jacoco.outputDir>
@@ -65,6 +65,7 @@
     <jacoco.out.it.file>jacoco-it.exec</jacoco.out.it.file>
     <sonar.jacoco.reportPath>${jacoco.outputDir}/${jacoco.out.unit.file}</sonar.jacoco.reportPath>
     <sonar.jacoco.itReportPath>${jacoco.outputDir}/${jacoco.out.it.file}</sonar.jacoco.itReportPath>
+    <sonatype.host>s01.oss.sonatype.org</sonatype.host>
   </properties>
 
   <build>
@@ -437,7 +438,7 @@
     <pluginRepository>
       <id>sonatype-nexus-snapshots</id>
       <name>Sonatype Nexus Snapshots</name>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <url>https://${sonatype.host}/content/repositories/snapshots</url>
       <releases>
         <enabled>false</enabled>
       </releases>
@@ -449,7 +450,7 @@
     <pluginRepository>
       <id>sonatype-nexus-staging</id>
       <name>Nexus Release Repository</name>
-      <url>https://oss.sonatype.org/content/repositories/releases</url>
+      <url>https://${sonatype.host}/content/repositories/releases</url>
       <releases>
         <enabled>true</enabled>
       </releases>
@@ -524,11 +525,11 @@
     <snapshotRepository>
       <id>sonatype-nexus-snapshots</id>
       <name>Sonatype Nexus Shapshots</name>
-      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+      <url>https://${sonatype.host}/content/repositories/snapshots/</url>
     </snapshotRepository>
     <repository>
       <id>sonatype-nexus-staging</id>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+      <url>https://${sonatype.host}/service/local/staging/deploy/maven2/</url>
     </repository>
   </distributionManagement>
 
@@ -615,7 +616,7 @@
     <connection>scm:git:git://github.com/${project_organization}/${project_name}.git</connection>
     <developerConnection>scm:git:git@github.com:${project_organization}/${project_name}.git</developerConnection>
     <url>https://github.com/${project_organization}/${project_name}</url>
-    <tag>fcrepo-4.7.5</tag>
+    <tag>fcrepo-4.7.6</tag>
   </scm>
 
 </project>
